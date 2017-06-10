@@ -15,7 +15,6 @@ def test_creation(defaultViolation):
     assert "12" == theViolation.get_column()
     assert "variable xyz" == theViolation.get_entity()
     assert theGuideline == theViolation.get_guideline()
-
     
 def test_get_set_file(defaultViolation):
     theViolation, theGuideline = defaultViolation
@@ -34,3 +33,19 @@ def test_get_set_column(defaultViolation):
 
     theViolation.set_column("54") 
     assert "54" == theViolation.get_column()
+    
+def test_get_set_entity(defaultViolation):
+    theViolation, theGuideline = defaultViolation
+
+    theViolation.set_entity("newEntity") 
+    assert "newEntity" == theViolation.get_entity()
+    
+def test_get_set_guideline(defaultViolation):
+    theViolation, theGuideline = defaultViolation
+
+    newGuideline = MisraGuideline("newID", "newclass", "newcat", "newgroup", "new desc")
+    
+    theViolation.set_guideline(newGuideline) 
+    assert newGuideline == theViolation.get_guideline()
+    assert newGuideline != theGuideline
+
