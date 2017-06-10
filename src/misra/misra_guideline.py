@@ -8,17 +8,17 @@ class MisraGuideline:
 		self.description = description
 		self.count = 0
 
-	def getId(self):
+	def get_id(self):
 		return self.id
 		
-	def getClassification(self):
+	def get_classification(self):
 		return self.classification
 		
-	def getCategory(self):
+	def get_category(self):
 		return self.category
 
-	def getGroup(self):
+	def get_group(self):
 		return self.group
 		
-	def getDescription(self):
+	def get_description(self):
 		return self.description
