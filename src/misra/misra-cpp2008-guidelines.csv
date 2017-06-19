@@ -1,0 +1,229 @@
+"""0-1-1""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain unreachable code"
+"""0-1-2""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain infeasible paths"""
+"""0-1-3""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain unused variables"""
+"""0-1-4""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain non-volatile POD variables having only one use"""
+"""0-1-5""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain unused type declarations"""
+"""0-1-6""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""A project shall not contain unused type declarations"""
+"""0-1-7""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""The values returned by a function having a non-void return type that is not an overloaded operatro shall always be used"""
+"""0-1-8""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""All functions with void return type shall have external side effect(s)"""
+"""0-1-9""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""There shall be no dead code"""
+"""0-1-10""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""Every define function shall be called at least once"""
+"""0-1-11""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""There shall be no unused parameters (named or unnamed) in non-virtual functions"""
+"""0-1-12""";"""Rule""";" ""Required""";"""Unnecessary constructs""";"""There shall be no unused parameters (named or unnamed) in the set of parameters for a virtual function and all the functions that override it"""
+"""0-2-1""";"""Rule""";" ""Required""";"""Storage""";"""An object shall not be assigned to an overlapping object"""
+"""0-3-1""";"""Rule""";" ""Document""";"""Runtime failures""";"""Minimization of run-time failures shall be ensured by the use of at least on of: (a) static analysis tools/techniques; (b) dynamic analysis tools/techniques; © explicit coding of checks to handle run-time faults"""
+"""0-3-2""";"""Rule""";" ""Required""";"""Runtime failures""";"""If a function generates error information, then that error information shall be tested"""
+"""0-4-1""";"""Rule""";" ""Document""";"""Arithmetic""";"""Use of scaled-integer or fixed-point arithmetic shall be documented"""
+"""0-4-2""";"""Rule""";" ""Document""";"""Arithmetic""";"""Use of floating-point arithmetic shall be documented"""
+"""0-4-3""";"""Rule""";" ""Document""";"""Arithmetic""";"""Floating point implementations shall comply with a defined floating-point standard"""
+"""1-0-1""";"""Rule""";" ""Required""";"""Language""";"""All code shall conform to ISO/IEC 14882:2003 'The C++ Standard Incorporation Techical Corrigendum 1'"""
+"""1-0-2""";"""Rule""";" ""Document""";"""Language""";"""Multiple compilers shall only be used if they have a common, defined interface"""
+"""1-0-3""";"""Rule""";" ""Document""";"""Language""";"""The implementation of integer division in the chosen compiler shall be determined and documented"""
+"""2-2-1""";"""Rule""";" ""Document""";"""Character sets""";"""The character set and the corresponding encoding shall be documented"""
+"""2-3-1""";"""Rule""";" ""Required""";"""Trigraph sequences""";"""Trigraph shall not be used"""
+"""2-5-1""";"""Rule""";"""Advisory""";"""Alternative tokens""";"""Digraphs should not be used"""
+"""2-7-1""";"""Rule""";" ""Required""";"""Comments""";"""The character sequence /* shall not be used within a C-style comment"""
+"""2-7-2""";"""Rule""";" ""Required""";"""Comments""";"""Sections of code shall not be 'commented out' using C-style comments"""
+"""2-7-3""";"""Rule""";"""Advisory""";"""Comments""";"""Sections of code should not be 'commented out' using C++ comments"""
+"""2-10-1""";"""Rule""";" ""Required""";"""Identifiers""";"""Different identifiers shall be typographically unambiguous"""
+"""2-10-2""";"""Rule""";" ""Required""";"""Identifiers""";"""Identifiers declared in an inner scope shall not hide an identifier declared in an outer scope"""
+"""2-10-3""";"""Rule""";" ""Required""";"""Identifiers""";"""A typedef name (including qualification, if any) shall be a unique identifier"""
+"""2-10-4""";"""Rule""";" ""Required""";"""Identifiers""";"""A class, union or enum name (including qualification, if any) shall be a unique identifier"""
+"""2-10-5""";"""Rule""";"""Advisory""";"""Identifiers""";"""The identifier name of a non-member object or function with static storage duration should not be reused"""
+"""2-10-6""";"""Rule""";" ""Required""";"""Identifiers""";"""If an identifier refers to a type, it shall not also refer to an object or a function in the same scope"""
+"""2-13-1""";"""Rule""";" ""Required""";"""Literals""";"""Only those escape sequences that are defined in  ISO/IEC 14882:2003 shall be used"""
+"""2-13-2""";"""Rule""";" ""Required""";"""Literals""";"""Octal constants (other than zero) and octal escap sequences (other than '\0') shall not be used"""
+"""2-13-3""";"""Rule""";" ""Required""";"""Literals""";"""A 'U' suffix shall be applied to all octal or hexadecimal integer literals of unsigned type"""
+"""2-13-4""";"""Rule""";" ""Required""";"""Literals""";"""Litteral suffixes shall be upper case"""
+"""2-13-5""";"""Rule""";" ""Required""";"""Literals""";"""Narrow and wide string literals shall not be concatenated"""
+"""3-1-1""";"""Rule""";" ""Required""";"""Declarations and definitions""";"""It shall be possible to include any header file in multiples translation units without violation the 'One Definition Rule'"""
+"""3-1-2""";"""Rule""";" ""Required""";"""Declarations and definitions""";"""Functions shall not be declared at block scope"""
+"""3-1-3""";"""Rule""";" ""Required""";"""Declarations and definitions""";"""When an array is declared, its size shall either be stated explicitely or defined implicitly be initialization"""
+"""3-2-1""";"""Rule""";" ""Required""";"""One Definition Rule""";
+"""3-2-2""";"""Rule""";" ""Required""";"""One Definition Rule""";
+"""3-2-3""";"""Rule""";" ""Required""";"""One Definition Rule""";
+"""3-2-4""";"""Rule""";" ""Required""";"""One Definition Rule""";
+"""3-3-1""";"""Rule""";" ""Required""";"""Declarative regions and scope""";
+"""3-3-2""";"""Rule""";" ""Required""";"""Declarative regions and scope""";
+"""3-4-1""";"""Rule""";" ""Required""";"""Name lookup""";
+"""3-9-1""";"""Rule""";" ""Required""";"""Types""";
+"""3-9-2""";"""Rule""";"""Advisory""";"""Types""";
+"""3-9-3""";"""Rule""";" ""Required""";"""Types""";
+"""4-5-1""";"""Rule""";" ""Required""";"""Integral promotions""";
+"""4-5-2""";"""Rule""";" ""Required""";"""Integral promotions""";
+"""4-5-3""";"""Rule""";" ""Required""";"""Integral promotions""";
+"""4-10-1""";"""Rule""";" ""Required""";"""Pointer conversions""";
+"""4-10-2""";"""Rule""";" ""Required""";"""Pointer conversions""";
+"""5-0-1""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-2""";"""Rule""";"""Advisory""";"""Expressions""";
+"""5-0-3""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-4""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-5""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-6""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-7""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-8""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-9""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-10""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-11""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-12""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-13""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-14""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-15""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-16""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-17""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-18""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-19""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-20""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-0-21""";"""Rule""";" ""Required""";"""Expressions""";
+"""5-2-1""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-2""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-3""";"""Rule""";"""Advisory""";"""Postfix expressions""";
+"""5-2-4""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-5""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-6""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-7""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-8""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-9""";"""Rule""";"""Advisory""";"""Postfix expressions""";
+"""5-2-10""";"""Rule""";"""Advisory""";"""Postfix expressions""";
+"""5-2-11""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-2-12""";"""Rule""";" ""Required""";"""Postfix expressions""";
+"""5-3-1""";"""Rule""";" ""Required""";"""Unary expressions""";
+"""5-3-2""";"""Rule""";" ""Required""";"""Unary expressions""";
+"""5-3-3""";"""Rule""";" ""Required""";"""Unary expressions""";
+"""5-3-4""";"""Rule""";" ""Required""";"""Unary expressions""";
+"""5-8-1""";"""Rule""";" ""Required""";"""Shift operators""";
+"""5-14-1""";"""Rule""";" ""Required""";"""Logical AND operator""";
+"""5-17-1""";"""Rule""";" ""Required""";"""Assignment operators""";
+"""5-18-1""";"""Rule""";" ""Required""";"""Comma operator""";
+"""5-19-1""";"""Rule""";"""Advisory""";"""Constant expressions""";
+"""6-2-1""";"""Rule""";" ""Required""";"""Expression statement""";
+"""6-2-2""";"""Rule""";" ""Required""";"""Expression statement""";
+"""6-2-3""";"""Rule""";" ""Required""";"""Expression statement""";
+"""6-3-1""";"""Rule""";" ""Required""";"""Compound statement""";
+"""6-4-1""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-2""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-3""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-4""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-5""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-6""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-7""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-4-8""";"""Rule""";" ""Required""";"""Selection statement""";
+"""6-5-1""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-5-2""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-5-3""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-5-4""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-5-5""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-5-6""";"""Rule""";" ""Required""";"""Iteration statements""";
+"""6-6-1""";"""Rule""";" ""Required""";"""Jump statements""";
+"""6-6-2""";"""Rule""";" ""Required""";"""Jump statements""";
+"""6-6-3""";"""Rule""";" ""Required""";"""Jump statements""";
+"""6-6-4""";"""Rule""";" ""Required""";"""Jump statements""";
+"""6-6-5""";"""Rule""";" ""Required""";"""Jump statements""";
+"""6-6-6""";"""Rule""";" ""Required""";"""Jump statements""";
+"""7-1-1""";"""Rule""";" ""Required""";"""Specifiers""";
+"""7-1-2""";"""Rule""";" ""Required""";"""Specifiers""";
+"""7-2-1""";"""Rule""";" ""Required""";"""Enumerations declarations""";
+"""7-3-1""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-3-2""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-3-3""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-3-4""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-3-5""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-3-6""";"""Rule""";" ""Required""";"""Namespaces""";
+"""7-4-1""";"""Rule""";"""Document""";"""The asm declaration""";
+"""7-4-2""";"""Rule""";" ""Required""";"""The asm declaration""";
+"""7-4-3""";"""Rule""";" ""Required""";"""The asm declaration""";
+"""7-5-1""";"""Rule""";" ""Required""";"""Linkage specifications""";
+"""7-5-2""";"""Rule""";" ""Required""";"""Linkage specifications""";
+"""7-5-3""";"""Rule""";" ""Required""";"""Linkage specifications""";
+"""7-5-4""";"""Rule""";"""Advisory""";"""Linkage specifications""";
+"""8-0-1""";"""Rule""";" ""Required""";"""Declarators - General""";
+"""8-3-1""";"""Rule""";" ""Required""";"""Meaning of declarators""";
+"""8-4-1""";"""Rule""";" ""Required""";"""Functions definitions""";
+"""8-4-2""";"""Rule""";" ""Required""";"""Functions definitions""";
+"""8-4-3""";"""Rule""";" ""Required""";"""Functions definitions""";
+"""8-4-4""";"""Rule""";" ""Required""";"""Functions definitions""";
+"""8-5-1""";"""Rule""";" ""Required""";"""Declarators - Initializers""";
+"""8-5-2""";"""Rule""";" ""Required""";"""Declarators - Initializers""";
+"""8-5-3""";"""Rule""";" ""Required""";"""Declarators - Initializers""";
+"""9-3-1""";"""Rule""";" ""Required""";"""Member functions""";
+"""9-3-2""";"""Rule""";" ""Required""";"""Member functions""";
+"""9-3-3""";"""Rule""";" ""Required""";"""Member functions""";
+"""9-5-1""";"""Rule""";" ""Required""";"""Unions""";
+"""9-6-1""";"""Rule""";"""Document""";"""Bit-fields""";
+"""9-6-2""";"""Rule""";" ""Required""";"""Bit-fields""";
+"""9-6-3""";"""Rule""";" ""Required""";"""Bit-fields""";
+"""9-6-4""";"""Rule""";" ""Required""";"""Bit-fields""";
+"""10-1-1""";"""Rule""";"""Advisory""";"""Multiple base classes""";
+"""10-1-2""";"""Rule""";" ""Required""";"""Multiple base classes""";
+"""10-1-3""";"""Rule""";" ""Required""";"""Multiple base classes""";
+"""10-2-1""";"""Rule""";"""Advisory""";"""Member name lookup""";
+"""10-3-1""";"""Rule""";" ""Required""";"""Virtual functions""";
+"""10-3-2""";"""Rule""";" ""Required""";"""Virtual functions""";
+"""10-3-3""";"""Rule""";" ""Required""";"""Virtual functions""";
+"""11-0-1""";"""Rule""";" ""Required""";"""Member access control - General""";
+"""12-1-1""";"""Rule""";" ""Required""";"""Constructors""";
+"""12-1-2""";"""Rule""";"""Advisory""";"""Constructors""";
+"""12-1-3""";"""Rule""";" ""Required""";"""Constructors""";
+"""12-8-1""";"""Rule""";" ""Required""";"""Copying class objects""";
+"""12-8-2""";"""Rule""";" ""Required""";"""Copying class objects""";
+"""14-5-1""";"""Rule""";" ""Required""";"""Template declarations""";
+"""14-5-2""";"""Rule""";" ""Required""";"""Template declarations""";
+"""14-5-3""";"""Rule""";" ""Required""";"""Template declarations""";
+"""14-6-1""";"""Rule""";" ""Required""";"""Name resolution""";
+"""14-6-2""";"""Rule""";" ""Required""";"""Name resolution""";
+"""14-7-1""";"""Rule""";" ""Required""";"""Template instantiation and specialization""";
+"""14-7-2""";"""Rule""";" ""Required""";"""Template instantiation and specialization""";
+"""14-7-3""";"""Rule""";" ""Required""";"""Template instantiation and specialization""";
+"""14-8-1""";"""Rule""";" ""Required""";"""Function template specialization""";
+"""14-8-2""";"""Rule""";"""Advisory""";"""Function template specialization""";
+"""15-0-1""";"""Rule""";"""Document""";"""Exceptions handling - General""";
+"""15-0-2""";"""Rule""";"""Advisory""";"""Exceptions handling - General""";
+"""15-0-3""";"""Rule""";" ""Required""";"""Exceptions handling - General""";
+"""15-1-1""";"""Rule""";" ""Required""";"""Throwing an exception""";
+"""15-1-2""";"""Rule""";" ""Required""";"""Throwing an exception""";
+"""15-1-3""";"""Rule""";" ""Required""";"""Throwing an exception""";
+"""15-3-1""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-3-2""";"""Rule""";"""Advisory""";"""Handling an exception""";
+"""15-3-3""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-3-4""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-3-5""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-3-6""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-3-7""";"""Rule""";" ""Required""";"""Handling an exception""";
+"""15-4-1""";"""Rule""";" ""Required""";"""Exception specifications""";If a function is declared with an exception-specification, thenall declarations of the same function (in other translations units) shall be declared with the same set ot type-ids
+"""15-5-1""";"""Rule""";" ""Required""";"""Exceptions handling - Special functions""";A class destructor shall not exit with an exception
+"""15-5-2""";"""Rule""";" ""Required""";"""Exceptions handling - Special functions""";Where a function's declaration includes an exception-spcification, the function shall only be capable of throwing exceptions of the indicated type(s)
+"""15-5-3""";"""Rule""";" ""Required""";"""Exceptions handling - Special functions""";The terminate() functions shall not be called implicitely
+"""16-0-1""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";#include directives shall not be called implicitely
+"""16-0-2""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";Macros shall only be #define'd or #undef'd in the global namespace
+"""16-0-3""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";#undef shall not be used
+"""16-0-4""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";Function-like macros shall not be defined
+"""16-0-5""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";Arguments to a function-like macro shall not contain tokens that look like preporcessing directives
+"""16-0-6""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";In the definition of a function-link macro shall not contain tokens that look like preprocessing directives
+"""16-0-7""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";Undefinde macro identifiers shall not be used in #if or #elif preprocessor directives, except as oprands to the defined operator
+"""16-0-8""";"""Rule""";" ""Required""";"""Preprocessing directives - General""";If the # token appearsas the first token on a line then it shall be immediately followed by a preprocessing token
+"""16-1-1""";"""Rule""";" ""Required""";"""Conditional inclusion""";The define preprocessor operator shall only be usde in one of the two standard forms
+"""16-1-2""";"""Rule""";" ""Required""";"""Conditional inclusion""";All #else, #elif and preprocessor directives shall reside in the same file as the #if or #ifdef directive to which the are related
+"""16-2-1""";"""Rule""";" ""Required""";"""Source file inclusion""";The pre-processor shall only be used for file includeion and include guards
+"""16-2-2""";"""Rule""";" ""Required""";"""Source file inclusion""";C++ macros shall only be used for: include guards, type qualifiers or storage class spcifiers
+"""16-2-3""";"""Rule""";" ""Required""";"""Source file inclusion""";Include guards shall be provided
+"""16-2-4""";"""Rule""";" ""Required""";"""Source file inclusion""";"The',"",/* or // characters shall not occur in a header file name"
+"""16-2-5""";"""Rule""";"""Advisory""";"""Source file inclusion""";The \ character should not occur in a header file name
+"""16-2-6""";"""Rule""";" ""Required""";"""Source file inclusion""";"The #include directive shall be followed by either a <filename> or ""filename"" sequence"
+"""16-3-1""";"""Rule""";" ""Required""";"""Macro replacement""";There shall be at most one occurrence of the # or ## operators in a single macro definition
+"""16-3-2""";"""Rule""";"""Advisory""";"""Macro replacement""";The # and ## opreators should not be used
+"""16-6-1""";"""Rule""";"""Document""";"""Pragma directive""";All uses of the #pragma directive shall be documented
+"""17-0-1""";"""Rule""";" ""Required""";"""Library introduction - General""";Reserved identifiers, macros and functions in the standard library shall not be defined redefined or undefined
+"""17-0-2""";"""Rule""";" ""Required""";"""Library introduction - General""";The names of standard library macros and objects shall not be reused
+"""17-0-3""";"""Rule""";" ""Required""";"""Library introduction - General""";The names of standard library functions shall not be overridden
+"""17-0-4""";"""Rule""";"""Document""";"""Library introduction - General""";All library  code shall conform MISRA C++
+"""17-0-5""";"""Rule""";" ""Required""";"""Library introduction - General""";The setjmp macro and the longjmp function shall not be used
+"""18-0-1""";"""Rule""";" ""Required""";"""Language support library - General""";The C library shall not be used
+"""18-0-2""";"""Rule""";" ""Required""";"""Language support library - General""";The library functions atof, atoi and atol from library <cstdlib> shall not be used
+"""18-0-3""";"""Rule""";" ""Required""";"""Language support library - General""";The library functions abort, exit, getenv and system from library <cstdlib> shall not be used
+"""18-0-4""";"""Rule""";" ""Required""";"""Language support library - General""";The time handling functions of library <ctime> shall not be used
+"""18-0-5""";"""Rule""";" ""Required""";"""Language support library - General""";The unbounded functions of library <cstring> shall not be used
+"""18-2-1""";"""Rule""";" ""Required""";"""Language support library - Implementation properties""";The macro offsetof shall not be used
+"""18-4-1""";"""Rule""";" ""Required""";"""Language support library - Dynamic memory management""";Dynamic heap memory allocation shall not be used
+"""18-7-1""";"""Rule""";" ""Required""";"""Language support library - Other runtime support""";The signal handling facilities of <csignal> shall not be used
+"""19-3-1""";"""Rule""";" ""Required""";"""Diagnostics library - Error numbers""";The error indicator errno shall not be used
+"""27-0-1""";"""Rule""";" ""Required""";"""Input/output library - General""";The stream input/output library <cstdio> shall not be used
