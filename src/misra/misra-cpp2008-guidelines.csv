@@ -63,39 +63,39 @@
 """5-0-7""";"""Rule""";" ""Required""";"""Expressions""";There shall be no explicit floating-integral conversion of a cvalue expression
 """5-0-8""";"""Rule""";" ""Required""";"""Expressions""";An explicit integral or floating-integral conversion shall not increase the size of the underlying type of a cvalue expression
 """5-0-9""";"""Rule""";" ""Required""";"""Expressions""";An explicit integral conversion shall not change the signedness of the underlying type ofa cvalue expression
-"""5-0-10""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-11""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-12""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-13""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-14""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-15""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-16""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-17""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-18""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-19""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-20""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-0-21""";"""Rule""";" ""Required""";"""Expressions""";
-"""5-2-1""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-2""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-3""";"""Rule""";"""Advisory""";"""Postfix expressions""";
-"""5-2-4""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-5""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-6""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-7""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-8""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-9""";"""Rule""";"""Advisory""";"""Postfix expressions""";
-"""5-2-10""";"""Rule""";"""Advisory""";"""Postfix expressions""";
-"""5-2-11""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-2-12""";"""Rule""";" ""Required""";"""Postfix expressions""";
-"""5-3-1""";"""Rule""";" ""Required""";"""Unary expressions""";
-"""5-3-2""";"""Rule""";" ""Required""";"""Unary expressions""";
-"""5-3-3""";"""Rule""";" ""Required""";"""Unary expressions""";
-"""5-3-4""";"""Rule""";" ""Required""";"""Unary expressions""";
-"""5-8-1""";"""Rule""";" ""Required""";"""Shift operators""";
-"""5-14-1""";"""Rule""";" ""Required""";"""Logical AND operator""";
-"""5-17-1""";"""Rule""";" ""Required""";"""Assignment operators""";
-"""5-18-1""";"""Rule""";" ""Required""";"""Comma operator""";
-"""5-19-1""";"""Rule""";"""Advisory""";"""Constant expressions""";
+"""5-0-10""";"""Rule""";" ""Required""";"""Expressions""";If the bitwise operators ~ and << are applied to an opreand with an underlying type of unsigned char or unsigned short, the result shall be immediately cast to the underlying type of the operand
+"""5-0-11""";"""Rule""";" ""Required""";"""Expressions""";The plain char type shall only be used for the storage and use of character values
+"""5-0-12""";"""Rule""";" ""Required""";"""Expressions""";signed char and unsigned char type shall only be used for the storage and use of numeric values
+"""5-0-13""";"""Rule""";" ""Required""";"""Expressions""";The condition of an if-statement and the condition fo an iteration-statement shall have type bool
+"""5-0-14""";"""Rule""";" ""Required""";"""Expressions""";the first operand of a conditional-operator shall have type bool
+"""5-0-15""";"""Rule""";" ""Required""";"""Expressions""";Array indexing shall be the only form of pointer arithmetic
+"""5-0-16""";"""Rule""";" ""Required""";"""Expressions""";A pointer operand and any pointer resulting from pointer arithmetic using that operand shall both address elements of the same array
+"""5-0-17""";"""Rule""";" ""Required""";"""Expressions""";Subtraction between pointers shall only be applied to pointers that address elements of the same array
+"""5-0-18""";"""Rule""";" ""Required""";"""Expressions""";>,>=,<,<= shall not be applied to objects of pointer type, except where they point to the same array
+"""5-0-19""";"""Rule""";" ""Required""";"""Expressions""";the declaration of objects shall contain no more than two levels of pointer indirection
+"""5-0-20""";"""Rule""";" ""Required""";"""Expressions""";Non-constant operands to a binary bitwise operator shall have the same underlying type
+"""5-0-21""";"""Rule""";" ""Required""";"""Expressions""";Bitwise operators shall only be applied to operands of unsigned underlying type
+"""5-2-1""";"""Rule""";" ""Required""";"""Postfix expressions""";Each operand of a logical && or || shall be a postfix-expression
+"""5-2-2""";"""Rule""";" ""Required""";"""Postfix expressions""";A pointer to a virtual base class shall only be cast to a pointer to a derived class by means of dynamic_cast
+"""5-2-3""";"""Rule""";"""Advisory""";"""Postfix expressions""";Casts from a base class to a derived class should not be performed on polymorphic types
+"""5-2-4""";"""Rule""";" ""Required""";"""Postfix expressions""";C-style casts (other than void casts) and functional notation casts (other than explicit constructor calls) shall not be used
+"""5-2-5""";"""Rule""";" ""Required""";"""Postfix expressions""";A cast shall not remove any const or volatile qualification from the type of a pointer or reference
+"""5-2-6""";"""Rule""";" ""Required""";"""Postfix expressions""";A cast shall not convert a pointer to a function toany other pointer type, including a pointer to function type
+"""5-2-7""";"""Rule""";" ""Required""";"""Postfix expressions""";An object with pointer type shall not be converted to an unrelated pointer type, either directly or indirectly
+"""5-2-8""";"""Rule""";" ""Required""";"""Postfix expressions""";An object with integer type or pointer to void type shall not be converted to an object with pointer type
+"""5-2-9""";"""Rule""";"""Advisory""";"""Postfix expressions""";A cast should not convert a pointer type to an integral type
+"""5-2-10""";"""Rule""";"""Advisory""";"""Postfix expressions""";The increment (++) and decrement (--) operators should not be mixed with other operators in an expression
+"""5-2-11""";"""Rule""";" ""Required""";"""Postfix expressions""";The comman operator, && operator and the || operator shall not be overloaded
+"""5-2-12""";"""Rule""";" ""Required""";"""Postfix expressions""";An identifier with array type passed as a function argument shall not decay to a pointer
+"""5-3-1""";"""Rule""";" ""Required""";"""Unary expressions""";Each operand of the ! Operator, the logical && or the logical || operators shall have type bool
+"""5-3-2""";"""Rule""";" ""Required""";"""Unary expressions""";The unary minus operator shall not be applied to an expression whose underlying type is unsigned
+"""5-3-3""";"""Rule""";" ""Required""";"""Unary expressions""";The unary & operator shall not be overloaded
+"""5-3-4""";"""Rule""";" ""Required""";"""Unary expressions""";Evaluationof the operand to the sizeof operator shall not contain side effects
+"""5-8-1""";"""Rule""";" ""Required""";"""Shift operators""";The right hand operand of a shift operator shall lie between zero and one less thatn the width in bits of the underlying type of the left hand operand
+"""5-14-1""";"""Rule""";" ""Required""";"""Logical AND operator""";The right hand operand of a logical && or || operator shall not contain side effects
+"""5-17-1""";"""Rule""";" ""Required""";"""Assignment operators""";The semantic equivalence between a binary operator and its assignement operator from shall be preserved
+"""5-18-1""";"""Rule""";" ""Required""";"""Comma operator""";The comma operator shall not be used
+"""5-19-1""";"""Rule""";"""Advisory""";"""Constant expressions""";Evaluation of constant unsigned integer expressions should not lead to wrap-around
 """6-2-1""";"""Rule""";" ""Required""";"""Expression statement""";
 """6-2-2""";"""Rule""";" ""Required""";"""Expression statement""";
 """6-2-3""";"""Rule""";" ""Required""";"""Expression statement""";
