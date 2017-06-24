@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="details" align="center" style="min-width: 310px; height: 50px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+
+	var c = [];
+	var d = [];
+	var chart;
+
+	var options = {
+		chart: {
+			renderTo: 'container'
+		},
+		title : {
+			text: 'Violations per rule'
+		},
+		xAxis: {
+			title: {
+				text: 'Rules'
+			},
+			categories: c
+		},
+		yAxis: {
+			title: {
+				text: '#Violations'
+			},
+		},
+        tooltip:{
+			formatter:function(){
+				console.log(this);
+				return '<b>Rule:</b> ' + this.x + '<br/><b>#Violations:</b> ' + this.y;
+			}
+		},
+		plotOptions: {
+			series: {                
+                marker: {
+                    enabled: false
+                },
+				cursor: 'pointer',
+				point: {
+					events: {
+						mouseOver: function() {
+							$('#details').text('Rule: '+ this.category +', Description: '+ this.description);
+						}
+                    }
+				},
+                events: {
+                    mouseOut: function() {
+                        $('#details').text('');
+                    }
+                }
+			}
+		},
+		series: [{
+            name: 'Violatons per MISRA rule',
+			data: d
+		}]
+	}
+	
+	$(document).ready(function() {
+		$.get("misraC2004-violations-per-rule.csv", function(data) {
+			var lines = data.replace(/"/g,"").split('\n');
+			$.each(lines, function(lineNo, line) {
+				if(lineNo > 0) {
+				  var items = line.split(',');
+				  c.push(items[0]);
+                  var number = parseInt("0");
+                  number = parseInt(0);
+                  number = parseInt("34");
+                  number = parseInt(items[1]);
+				  d.push({y: parseInt(items[1]), description: items[2]});
+				}
+				lastLine = lineNo;
+			});
+			chart = new Highcharts.Chart(options);
+		});
+	});
+
+</script>
+
+</body>
+</html>
