@@ -14,3 +14,5 @@ This will generate the following set of files:
 * misraC2004-violations-per-file.csv
 * misraC2004-violations-per-category.csv
 
+# example output
+<img src="./images/example.png" width="600">
