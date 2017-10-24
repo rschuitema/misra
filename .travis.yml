@@ -1,0 +1,8 @@
+language: python
+
+install:
+  - pip install pylint
+
+script:
+  - mkdir -p reports/pylint
+  - pylint --rcfile=.pylintrc src/*/*.py > reports/pylint/pylint_report.txt
