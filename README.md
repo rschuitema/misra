@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rschuitema/misra.svg?branch=develop)](https://travis-ci.org/rschuitema/misra)
+
 # misra
 This project visualizes the misra violations of a code base. It is able to visualize the violations of the MISRA C2004 and MISRA C2012 standards. It parses the output of the tool <a href="https://scitools.com/">understand</a>.
 
