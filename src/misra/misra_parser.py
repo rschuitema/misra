@@ -1,3 +1,5 @@
+""" Parse misra violations in a log file and present the violations in several views """
+
 import csv
 import re
 
@@ -5,20 +7,29 @@ from misra_guideline import MisraGuideline
 from violation import Violation
 
 class MisraParser:
+    """ Parse misra violations in a log file and present the violations in several views """
 
     def __init__(self):
+        """ Construct the misra parser """
+
         self.guidelines = {}
         self.violations = []
 
-    def getGuidelines(self):
+    def get_guidelines(self):
+        """ Get the guidelines """
+
         return self.guidelines
 
-    def getViolations(self):
+    def get_violations(self):
+        """ Get the violations """
+
         return self.violations
 
-    def readGuidelines(self, guidelineFile):
-        with open(guidelineFile, 'rt') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',' , quotechar='"', quoting=csv.QUOTE_ALL, skipinitialspace=True)
+    def read_guidelines(self, guideline_file):
+        """ Read the guidlines from a CSV file """
+
+        with open(guideline_file, 'rt') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL, skipinitialspace=True)
             next(reader, None)  # skip the headers
             for row in reader:
                 rule = row[0]
@@ -30,8 +41,10 @@ class MisraParser:
                     self.guidelines[rule] = MisraGuideline(rule, classification, category, group, description)
 
 
-    def readViolations(self, violationsFile):
-        with open(violationsFile, 'rt') as csvfile:
+    def read_violations(self, violations_file):
+        """ Read the violations from a CSV file """
+
+        with open(violations_file, 'rt') as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='"')
             next(reader, None)  # skip the headers
             for row in reader:
@@ -41,10 +54,10 @@ class MisraParser:
                     linenr = row[2]
                     column = row[3]
 
-                    result = re.search ('([0-9]+\.[0-9]+)', str(row[4]))
+                    result = re.search('([0-9]+.[0-9]+)', str(row[4]))
                     guideline = None
                     if result:
-                        rule = result.group (1)
+                        rule = result.group(1)
                         if rule in self.guidelines.keys():
                             guideline = self.guidelines[rule]
                         else:
@@ -55,79 +68,83 @@ class MisraParser:
                     self.violations.append(Violation(file, linenr, column, guideline, entity))
 
 
-    def violationsPerRule(self):
+    def violations_per_rule(self):
+        """ Get the number of violations per rule """
 
-        violationsPerRule = {}
+        violations_per_rule = {}
 
         # initialize the violations to 0 for all rules
         for rule in self.guidelines:
-            violationsPerRule[rule] = 0
+            violations_per_rule[rule] = 0
 
         # count all violations per rule
-        for violation in self.violations :
+        for violation in self.violations:
             rule = violation.get_guideline().get_id()
-            if rule in violationsPerRule.keys():
-                violationsPerRule[rule] += 1
+            if rule in violations_per_rule.keys():
+                violations_per_rule[rule] += 1
             else:
-                violationsPerRule[rule] = 1
+                violations_per_rule[rule] = 1
 
-        return violationsPerRule
+        return violations_per_rule
 
-    def violationsPerCategory(self):
+    def violations_per_category(self):
+        """ Get the number of violations per category """
 
-        violationsPerCategory = {}
+        violations_per_category = {}
 
         # initialize the violations to 0 for all categories
-        violationsPerCategory["Required"] = 0
-        violationsPerCategory["Advisory"] = 0
-        violationsPerCategory["Mandatory"] = 0
+        violations_per_category["Required"] = 0
+        violations_per_category["Advisory"] = 0
+        violations_per_category["Mandatory"] = 0
 
         # count all violations per category
-        for violation in self.violations :
+        for violation in self.violations:
             category = violation.get_guideline().get_category()
-            if category in violationsPerCategory.keys():
-                violationsPerCategory[category] += 1
+            if category in violations_per_category.keys():
+                violations_per_category[category] += 1
             else:
-                violationsPerCategory[category] = 1
+                violations_per_category[category] = 1
 
-        return violationsPerCategory
+        return violations_per_category
 
-    def violationsPerGroup(self):
+    def violations_per_group(self):
+        """ Get the number of violations per group """
 
-        violationsPerGroup = {}
+        violations_per_group = {}
 
         # initialize the violations to 0 for all groups
         for key in self.guidelines:
             group = self.guidelines[key].get_group()
-            if group not in violationsPerGroup.keys():
-                violationsPerGroup[group] = 0
+            if group not in violations_per_group.keys():
+                violations_per_group[group] = 0
 
         # count all violations per group
-        for violation in self.violations :
+        for violation in self.violations:
             group = violation.get_guideline().get_group()
-            if group in violationsPerGroup.keys():
-                violationsPerGroup[group] += 1
+            if group in violations_per_group.keys():
+                violations_per_group[group] += 1
             else:
-                violationsPerGroup[group] = 1
+                violations_per_group[group] = 1
 
-        return violationsPerGroup
+        return violations_per_group
 
-    def violationsPerFile(self):
+    def violations_per_file(self):
+        """ Get the number of violations per file """
 
-        violationsPerFile = {}
+        violations_per_file = {}
 
         # initialize the violations to 0 for all groups
         for violation in self.violations:
             file = violation.get_file()
-            if file not in violationsPerFile.keys():
-                violationsPerFile[file] = 0
+            if file not in violations_per_file.keys():
+                violations_per_file[file] = 0
 
         # count all violations per file
-        for violation in self.violations :
+        for violation in self.violations:
             file = violation.get_file()
-            if file in violationsPerFile.keys():
-                violationsPerFile[file] += 1
+            if file in violations_per_file.keys():
+                violations_per_file[file] += 1
             else:
-                violationsPerFile[file] = 1
+                violations_per_file[file] = 1
 
-        return violationsPerFile
+        return violations_per_file

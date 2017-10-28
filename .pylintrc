@@ -15,7 +15,7 @@ ignore-patterns=
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook='import sys; sys.path.append("/venv_restapi/lib/python3.5/dist-packages")'
+init-hook='import sys; sys.path.append("./src/misra")'
 
 # Use multiple processes to speed up Pylint.
 jobs=1
@@ -390,7 +390,7 @@ valid-metaclass-classmethod-first-arg=mcs
 [DESIGN]
 
 # Maximum number of arguments for function / method
-max-args=5
+max-args=6
 
 # Maximum number of attributes for a class (see R0902).
 max-attributes=7
