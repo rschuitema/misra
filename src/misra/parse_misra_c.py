@@ -69,7 +69,7 @@ def save_violations_per_rule(violations_per_rule, guidelines, standard):
     method = determine_compare_method(standard)
     sorted_violations = sorted(violations_per_rule, key=method)
 
-    outputfile = standard + "-violations-per-rule.csv"
+    outputfile = "misra-" + standard + "-violations-per-rule.csv"
 
     with open(outputfile, 'w') as output:
         csvwriter = csv.writer(output, delimiter=',', lineterminator='\n', quoting=csv.QUOTE_ALL)
@@ -86,7 +86,7 @@ def save_violations_per_rule(violations_per_rule, guidelines, standard):
 def save_violations_per_category(violations_per_category, standard):
     """ Save the violations per category to a file """
 
-    outputfile = standard + "-violations-per-category.csv"
+    outputfile = "misra-" + standard + "-violations-per-category.csv"
 
     with open(outputfile, 'w') as output:
         csvwriter = csv.writer(output, delimiter=',', lineterminator='\n', quoting=csv.QUOTE_ALL)
@@ -99,7 +99,7 @@ def save_violations_per_category(violations_per_category, standard):
 def save_violations_per_group(violations_per_group, standard):
     """ Save the violations per group to a file """
 
-    outputfile = standard + "-violations-per-group.csv"
+    outputfile = "misra-" + standard + "-violations-per-group.csv"
 
     with open(outputfile, 'w') as output:
         csvwriter = csv.writer(output, delimiter=',', lineterminator='\n', quoting=csv.QUOTE_ALL)
@@ -113,7 +113,7 @@ def save_violations_per_file(violations_per_file, standard):
 
     sorted_violations = sorted(violations_per_file.items(), key=operator.itemgetter(1), reverse=True)
 
-    outputfile = standard + "-violations-per-file.csv"
+    outputfile = "misra-" + standard + "-violations-per-file.csv"
 
     with open(outputfile, 'w') as output:
         csvwriter = csv.writer(output, delimiter=',', lineterminator='\n', quoting=csv.QUOTE_ALL)
