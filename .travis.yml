@@ -4,7 +4,9 @@ python:
   
 install:
   - pip install pylint
+  - pip install pytest
+  - pip install behave
 
 script:
-  - mkdir -p reports/pylint
   - pylint --rcfile=.pylintrc src/*/*.py
+  - pytest
