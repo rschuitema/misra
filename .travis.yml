@@ -10,17 +10,14 @@ install:
   - pip install xenon
 
 stages:
-  - build
   - static analysis
   - unit test
 
 jobs:
   include:
-    - stage: build
-      script: echo "building..."
     - stage: static analysis
       script: pylint --rcfile=.pylintrc src/*/*.py
-      script: xenon -a A -b B -m A src/misra
-      script: radon cc -s src/misra
+    - script: xenon -a A -b B -m A src/misra
+    - script: radon cc -s src/misra
     - stage: unit test
       script: pytest --cov=src/misra --cov-branch
