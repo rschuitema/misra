@@ -7,7 +7,10 @@ install:
   - pip install pytest
   - pip install pytest-cov
   - pip install behave
+  - pip install xenon
 
 script:
   - pylint --rcfile=.pylintrc src/*/*.py
   - pytest --cov=src/misra --cov-branch
+  - xenon -a A -b B -m A src/misra
+  - radon -s src/misra
