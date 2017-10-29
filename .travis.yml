@@ -1,7 +1,7 @@
 language: python
 python:
   - "3.6"
-  
+
 install:
   - pip install pylint
   - pip install pytest
@@ -9,9 +9,18 @@ install:
   - pip install behave
   - pip install xenon
 
-  
-script:
-  - pylint --rcfile=.pylintrc src/*/*.py
-  - pytest --cov=src/misra --cov-branch
-  - xenon -a A -b B -m A src/misra
-  - radon cc -s src/misra
+stages:
+  - build
+  - static analysis
+  - unit test
+
+jobs:
+  include:
+    - stage: build
+      script: echo "building..."
+    - stage: static analysis
+      script: pylint --rcfile=.pylintrc src/*/*.py
+      script: xenon -a A -b B -m A src/misra
+      script: radon cc -s src/misra
+    - stage: unit test
+      script: pytest --cov=src/misra --cov-branch
