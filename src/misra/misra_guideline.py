@@ -1,16 +1,17 @@
 """ This module represents the data of a MISRA guideline """
 
+
 class MisraGuideline:
     """ Representation of the MISRA guideline """
 
-    def __init__(self, identifier, classification, category, group, description):
+    def __init__(self, guide):
         """ Construct and initialize the guideline """
 
-        self.identifier = identifier
-        self.classification = classification
-        self.category = category
-        self.group = group
-        self.description = description
+        self.identifier = guide[0]
+        self.classification = guide[1]
+        self.category = guide[2]
+        self.group = guide[3]
+        self.description = guide[4]
         self.count = 0
 
     def get_id(self):

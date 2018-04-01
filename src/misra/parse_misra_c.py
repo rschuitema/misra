@@ -5,16 +5,19 @@ import csv
 import operator
 from misra_parser import MisraParser
 
+
 # custom compare function to compare the rules
 def misra_c2004_compare(rule):
     """ compare misra C2004 rules """
 
     return int(rule.split('.')[0])*100 + int(rule.split('.')[1])
 
+
 def misra_c2012_compare(rule):
     """ compare misra C2012 rules """
 
     return int(rule.split('.')[0])*100 + int(rule.split('.')[1])
+
 
 def determine_compare_method(standard):
     """ determine the compare method based upon the provided standard """
@@ -39,6 +42,7 @@ def print_violations_per_rule(violations_per_rule, standard):
     for key in sorted_violations:
         print('%s,%s' % (key, violations_per_rule[key]))
 
+
 def print_violations_per_category(violations_per_category):
     """ Print the violations per category on the standard output """
 
@@ -46,12 +50,14 @@ def print_violations_per_category(violations_per_category):
     for key in violations_per_category:
         print('%s,%s' % (key, violations_per_category[key]))
 
+
 def print_violations_per_group(violations_per_group):
     """ Print the violations per group on the standard output """
 
     print("-----------")
     for key in violations_per_group:
         print('%s,%s' % (key, violations_per_group[key]))
+
 
 def print_violations_per_file(violations_per_file):
     """ Print the violations per file on the standard output """
@@ -96,6 +102,7 @@ def save_violations_per_category(violations_per_category, standard):
             csvwriter.writerow([key,
                                 violations_per_category[key]])
 
+
 def save_violations_per_group(violations_per_group, standard):
     """ Save the violations per group to a file """
 
@@ -107,6 +114,7 @@ def save_violations_per_group(violations_per_group, standard):
 
         for key in violations_per_group:
             csvwriter.writerow([key, violations_per_group[key]])
+
 
 def save_violations_per_file(violations_per_file, standard):
     """ Save the violations per file to a file """
@@ -149,7 +157,6 @@ def main():
     input_file = args.input
     standard = args.standard
     verbose = args.verbose
-
 
     parser = MisraParser()
 

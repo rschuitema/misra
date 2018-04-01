@@ -6,6 +6,7 @@ import re
 from misra_guideline import MisraGuideline
 from violation import Violation
 
+
 class MisraParser:
     """ Parse misra violations in a log file and present the violations in several views """
 
@@ -38,8 +39,7 @@ class MisraParser:
                 group = row[3]
                 description = row[4]
                 if rule not in self.guidelines.keys():
-                    self.guidelines[rule] = MisraGuideline(rule, classification, category, group, description)
-
+                    self.guidelines[rule] = MisraGuideline((rule, classification, category, group, description))
 
     def read_violations(self, violations_file):
         """ Read the violations from a CSV file """
@@ -61,12 +61,11 @@ class MisraParser:
                         if rule in self.guidelines.keys():
                             guideline = self.guidelines[rule]
                         else:
-                            guideline = MisraGuideline(rule, "Unknown", "Unknown", "Unknown", "Unknown")
+                            guideline = MisraGuideline((rule, "Unknown", "Unknown", "Unknown", "Unknown"))
 
                     entity = row[5]
 
                     self.violations.append(Violation(file, linenr, column, guideline, entity))
-
 
     def violations_per_rule(self):
         """ Get the number of violations per rule """
@@ -90,12 +89,8 @@ class MisraParser:
     def violations_per_category(self):
         """ Get the number of violations per category """
 
-        violations_per_category = {}
-
         # initialize the violations to 0 for all categories
-        violations_per_category["Required"] = 0
-        violations_per_category["Advisory"] = 0
-        violations_per_category["Mandatory"] = 0
+        violations_per_category = {"Required": 0, "Advisory": 0, "Mandatory": 0}
 
         # count all violations per category
         for violation in self.violations:
