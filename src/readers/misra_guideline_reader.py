@@ -52,7 +52,7 @@ def is_valid_group(group):
 def is_valid_rule(rule):
     """ Check if format of the rule is valid """
 
-    return re.search('([0-9]+\.[0-9]+)', str(rule))
+    return re.search(r'([0-9]+\.[0-9]+)', str(rule))
 
 
 def is_valid_guideline(guide):
