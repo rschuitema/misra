@@ -86,8 +86,14 @@ def get_standard_file(standard):
     return None
 
 
+def store_guideline(guideline, guidelines):
+    if guideline[0] not in guidelines.keys():
+        guidelines[guideline[0]] = MisraGuideline(guideline)
+
+
 def read_guidelines(standard_file, csv_reader=None):
     """ Read the guidelines form a CSV file"""
+    
     guidelines = {}
 
     with open(standard_file, 'rt') as csv_file:
@@ -95,12 +101,11 @@ def read_guidelines(standard_file, csv_reader=None):
             csv_reader = csv.DictReader(csv_file, delimiter=',', quotechar='"',
                                         quoting=csv.QUOTE_ALL, skipinitialspace=True)
         for row in csv_reader:
-            guide = (row['Rule'], row['Classification'], row['Category'], row['Group'], row['Description'])
-            if is_valid_guideline(guide):
-                if row['Rule'] not in guidelines.keys():
-                    guidelines[row['Rule']] = MisraGuideline(guide)
+            guideline = (row['Rule'], row['Classification'], row['Category'], row['Group'], row['Description'])
+            if is_valid_guideline(guideline):
+                store_guideline(guideline, guidelines)
             else:
-                print("Incorrect format of guideline: {}".format(guide))
+                print("Incorrect format of guideline: {}".format(guideline))
 
     return guidelines
 
