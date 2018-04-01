@@ -73,17 +73,24 @@ def is_valid_guideline(guide):
     return True
 
 
-def read_misra_guidelines(standard, csv_reader=None):
-    """ Read the guidelines from a CSV file """
+def get_standard_file(standard):
+    """ Map the standard to a file """
 
+    standard_files = {"C2004": "misra-c2004-guidelines.csv",
+                      "C2012": "misra-c2012-guidelines.csv",
+                      "CPP2008": "misra-cpp2008-guidelines.csv"}
+
+    if standard in standard_files.keys():
+        return standard_files[standard]
+
+    return None
+
+
+def read_guidelines(standard_file, csv_reader=None):
+    """ Read the guidelines form a CSV file"""
     guidelines = {}
-    the_files = {"C2004": "misra-c2004-guidelines.csv",
-                 "C2012": "misra-c2012-guidelines.csv",
-                 "CPP2008": "misra-cpp2008-guidelines.csv"}
 
-    guideline_file = the_files[standard]
-
-    with open(guideline_file, 'rt') as csv_file:
+    with open(standard_file, 'rt') as csv_file:
         if csv_reader is None:
             csv_reader = csv.DictReader(csv_file, delimiter=',', quotechar='"',
                                         quoting=csv.QUOTE_ALL, skipinitialspace=True)
@@ -94,5 +101,17 @@ def read_misra_guidelines(standard, csv_reader=None):
                     guidelines[row['Rule']] = MisraGuideline(guide)
             else:
                 print("Incorrect format of guideline: {}".format(guide))
+
+    return guidelines
+
+
+def read_misra_guidelines(standard, csv_reader=None):
+    """ Read the MISRA guidelines indicated by <standard> from a CSV file """
+
+    guidelines = {}
+
+    standard_file = get_standard_file(standard)
+    if standard_file is not None:
+        guidelines = read_guidelines(standard_file, csv_reader)
 
     return guidelines
