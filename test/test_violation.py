@@ -2,50 +2,57 @@ import pytest
 from src.misra.violation import Violation
 from src.misra.misra_guideline import MisraGuideline
 
+
 @pytest.fixture
-def defaultViolation():
-    theGuideline = MisraGuideline("id-123", "classification", "category", "group", "description")
-    theViolation = Violation("myfile.txt", "89", "12", theGuideline, "variable xyz")
-    return theViolation, theGuideline
+def default_violation():
+    the_guideline = MisraGuideline(("id-123", "classification", "category", "group", "description"))
+    the_violation = Violation("myfile.txt", "89", "12", the_guideline, "variable xyz")
+    return the_violation, the_guideline
 
-def test_creation(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-    assert "myfile.txt" == theViolation.get_file()
-    assert "89" == theViolation.get_line()
-    assert "12" == theViolation.get_column()
-    assert "variable xyz" == theViolation.get_entity()
-    assert theGuideline == theViolation.get_guideline()
+
+def test_creation(default_violation):
+    the_violation, the_guideline = default_violation
+    assert "myfile.txt" == the_violation.get_file()
+    assert "89" == the_violation.get_line()
+    assert "12" == the_violation.get_column()
+    assert "variable xyz" == the_violation.get_entity()
+    assert the_guideline == the_violation.get_guideline()
+
+
+def test_get_set_file(default_violation):
+    the_violation, the_guideline = default_violation
+
+    the_violation.set_file("c:\\test\\hello.c")
+    assert "c:\\test\\hello.c" == the_violation.get_file()
+
+
+def test_get_set_line(default_violation):
+    the_violation, the_guideline = default_violation
+
+    the_violation.set_line("21")
+    assert "21" == the_violation.get_line()
+
+
+def test_get_set_column(default_violation):
+    the_violation, the_guideline = default_violation
+
+    the_violation.set_column("54")
+    assert "54" == the_violation.get_column()
+
+
+def test_get_set_entity(default_violation):
+    the_violation, the_guideline = default_violation
+
+    the_violation.set_entity("newEntity")
+    assert "newEntity" == the_violation.get_entity()
+
+
+def test_get_set_guideline(default_violation):
+    the_violation, the_guideline = default_violation
+
+    new_guideline = MisraGuideline(("newID", "newclass", "newcat", "newgroup", "new desc"))
     
-def test_get_set_file(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-
-    theViolation.set_file("c:\\test\\hello.c") 
-    assert "c:\\test\\hello.c" == theViolation.get_file()
-    
-def test_get_set_line(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-
-    theViolation.set_line("21") 
-    assert "21" == theViolation.get_line()
-
-def test_get_set_column(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-
-    theViolation.set_column("54") 
-    assert "54" == theViolation.get_column()
-    
-def test_get_set_entity(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-
-    theViolation.set_entity("newEntity") 
-    assert "newEntity" == theViolation.get_entity()
-    
-def test_get_set_guideline(defaultViolation):
-    theViolation, theGuideline = defaultViolation
-
-    newGuideline = MisraGuideline("newID", "newclass", "newcat", "newgroup", "new desc")
-    
-    theViolation.set_guideline(newGuideline) 
-    assert newGuideline == theViolation.get_guideline()
-    assert newGuideline != theGuideline
+    the_violation.set_guideline(new_guideline)
+    assert new_guideline == the_violation.get_guideline()
+    assert new_guideline != the_guideline
 
