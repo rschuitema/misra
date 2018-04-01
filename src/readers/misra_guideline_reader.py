@@ -87,13 +87,15 @@ def get_standard_file(standard):
 
 
 def store_guideline(guideline, guidelines):
+    """ Store the guideline in the dictionary if it is a new one"""
+
     if guideline[0] not in guidelines.keys():
         guidelines[guideline[0]] = MisraGuideline(guideline)
 
 
 def read_guidelines(standard_file, csv_reader=None):
     """ Read the guidelines form a CSV file"""
-    
+
     guidelines = {}
 
     with open(standard_file, 'rt') as csv_file:
