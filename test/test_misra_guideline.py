@@ -11,4 +11,3 @@ def test_creation():
     assert "category" == the_guideline.get_category()
     assert "group" == the_guideline.get_group()
     assert "description" == the_guideline.get_description()
-    

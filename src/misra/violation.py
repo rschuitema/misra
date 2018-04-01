@@ -1,5 +1,6 @@
 """ This module represents a violation against a MISRA guideline """
 
+
 class Violation:
     """ Represents a violation against a MISRA guideline """
 
