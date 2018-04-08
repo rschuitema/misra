@@ -58,16 +58,17 @@ def is_valid_rule(rule):
 def is_valid_guideline(guide):
     """ Check if the guideline is valid """
 
-    if not is_valid_rule(guide[0]):
+    rule, classification, category, group, description = guide
+    if not is_valid_rule(rule):
         return False
 
-    if not is_valid_classification(guide[1]):
+    if not is_valid_classification(classification):
         return False
 
-    if not is_valid_category(guide[2]):
+    if not is_valid_category(category):
         return False
 
-    if not is_valid_group(guide[3]):
+    if not is_valid_group(group):
         return False
 
     return True
