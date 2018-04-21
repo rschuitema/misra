@@ -55,6 +55,12 @@ def is_valid_rule(rule):
     return re.search(r'([0-9]+\.[0-9]+)', str(rule))
 
 
+def is_valid_description(description):
+    """Check if description is a string"""
+
+    return isinstance(description, str)
+
+
 def is_valid_guideline(guide):
     """ Check if the guideline is valid """
 
@@ -69,6 +75,9 @@ def is_valid_guideline(guide):
         return False
 
     if not is_valid_group(group):
+        return False
+
+    if not is_valid_description(description):
         return False
 
     return True
