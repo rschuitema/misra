@@ -24,27 +24,12 @@ def is_valid_category(category):
 def is_valid_group(group):
     """ Check if the group is a MISRA defined group """
 
-    allowed_groups = ['Environment',
-                      'Language extensions',
-                      'Documentations',
-                      'Character sets',
-                      'Identifiers',
-                      'Types',
-                      'Constants',
-                      'Declarations and definitions',
-                      'Initialization',
-                      'Arithmetic type conversions',
-                      'Pointer type conversions',
-                      'Expressions',
-                      'Control statement expressions',
-                      'Control flow',
-                      'Switch statements',
-                      'Functions',
-                      'Pointers and arrays',
-                      'Structures and unions',
-                      'Preprocessing directives',
-                      'Standard libraries',
-                      'Run-time failures']
+    allowed_groups = ['Environment', 'Language extensions', 'Documentations', 'Character sets',
+                      'Identifiers', 'Types', 'Constants', 'Declarations and definitions',
+                      'Initialization', 'Arithmetic type conversions', 'Pointer type conversions',
+                      'Expressions', 'Control statement expressions', 'Control flow', 'Switch statements',
+                      'Functions', 'Pointers and arrays', 'Structures and unions', 'Preprocessing directives',
+                      'Standard libraries', 'Run-time failures']
 
     return group in allowed_groups
 
